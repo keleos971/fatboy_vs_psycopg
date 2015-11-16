@@ -1,4 +1,4 @@
-# 2015 16 11 test 2
+# 2015 16 11 v3
 # connexion.py
 # voxclam.indes@gmail.com
 #
