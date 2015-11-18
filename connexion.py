@@ -1,4 +1,5 @@
-# 2015 16 11 v3
+# Created 2015 16 11 
+# Last modified 2015 18 11
 # connexion.py
 # voxclam.indes@gmail.com
 #
@@ -15,9 +16,12 @@ import sys
 import pprint
  
 def main():
-	conn_string = "host='localhost' dbname='JOUEUR' user='psycopg' password='psycopg'"
+	
+	userLogin=input("userLogin : ")
+	userPass=input("userPass : ")
+	conn_string = "host='localhost' dbname='fatboy_dev' user='%s' password='%s'" %(userLogin,userPass)
 	# print the connection string we will use to connect
-	print "Connecting to database\n	->%s" % (conn_string)
+	print ("Connecting to database")
  
 	# get a connection, if a connect cannot be made an exception will be raised here
 	conn = psycopg2.connect(conn_string)
@@ -26,7 +30,7 @@ def main():
 	cursor = conn.cursor()
  
 	# execute our Query
-	cursor.execute("SELECT * FROM JOUEUR")
+	cursor.execute("SELECT * FROM \"GENERIC_DATA\".\"JOUEUR\"")
  
 	# retrieve the records from the database
 	records = cursor.fetchall()
