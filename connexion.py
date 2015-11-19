@@ -1,5 +1,5 @@
 # Created 2015 16 11 
-# Last modified 2015 18 11
+# Last modified 2015 19 11
 # connexion.py
 # voxclam.indes@gmail.com
 #
@@ -30,7 +30,7 @@ def main():
 	cursor = conn.cursor()
  
 	# execute our Query
-	cursor.execute("SELECT * FROM \"GENERIC_DATA\".\"JOUEUR\"")
+	cursor.execute("select * from joueur")
  
 	# retrieve the records from the database
 	records = cursor.fetchall()
