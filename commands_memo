@@ -1,0 +1,124 @@
+Short memo for all the useful commands. 
+
+Template for this memo : 
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+# I AM A CATEGORY
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+
+# ----------------------------------------------------------------------
+# I am a title
+# ----------------------------------------------------------------------
+
+# I am a possible action (i am an example for the current possible action)
+I am a command
+	# I am an option (a parameter to append to the command after a space)
+	# I am another option, because why not
+Here we go
+
+
+
+
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+# UNIX
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+
+# ----------------------------------------------------------------------
+# Must know !
+# ----------------------------------------------------------------------
+
+# display manual for a command (ex sudo)
+man sudo
+
+# display help for a comand (ex sudo)
+sudo -help
+
+# ----------------------------------------------------------------------
+# Navigating & listing the directories and files
+# ----------------------------------------------------------------------
+
+# change directory to the server root
+cd
+
+# go to a directory from anywhere
+cd /var/log
+
+# go to a subdirectory that in the current directory
+cd var/log
+
+# listing directories and files in the current directory
+ls 
+	# -a		lists all files including hidden
+	# -l		lists files and extensive information on it. See http://www.linuxpedia.fr/doku.php/commande/ls
+
+# find shit on the server (ex wordpress in directory /home)
+find /home -name 'wordpress'
+	# / for searching the entire server
+	# -name is case sensitive
+	# -iname for case insensitive
+	# when you know the length of what you're looking for, use ?. ex :  'wordpr???'
+	# when you want to search a pattern, use *. ex : 'wor*' or '*ress'  /!\ resource intensive !!!!!
+
+
+# ----------------------------------------------------------------------
+# User commands
+# ----------------------------------------------------------------------
+
+# user information (ex shogo)
+finger shogo
+	# lol at the name of the command
+
+# sublogging as root (will embed a login within the current login, not switch)
+sudo su
+
+# login as another user
+sudo su voxclam
+
+# end the sublogging as another user
+[CTRL+D]
+	# also works for properly ending an ssh session
+
+# create an user an home directory with his name in ~/home (ex shogo)
+adduser shogo
+	# --system creates a system user. see http://unix.stackexchange.com/questions/80277/whats-the-difference-between-a-normal-user-and-a-system-user
+	# --debug sets a verbose mode (more information in output)
+	# add it to the sudoer list : https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-an-ubuntu-14-04-vps
+	
+# change user rights on a directory (ex give /home/shogo to user shogo)
+chown shogo /home/shogo 
+
+
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+# Postgres
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+
+# ----------------------------------------------------------------------
+# PSQL & PLPGSQL in bash
+# ----------------------------------------------------------------------
+
+# Launch bash psql
+
+
+
+
+
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+# MySQL
+# ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+
+
+
+# # ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+# Bash UNIX
+# # ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+
+
+
+# # ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+# Bash UNIX
+# # ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+
+
+
+# # ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
+# Bash UNIX
+# # ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.
