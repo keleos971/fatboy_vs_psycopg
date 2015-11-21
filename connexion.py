@@ -13,7 +13,7 @@
 #!/usr/bin/python
 import psycopg2
 import sys
-import pprint
+import class_joueur
  
 def main():
 	
@@ -35,11 +35,13 @@ def main():
 	# retrieve the records from the database
 	records = cursor.fetchall()
  
-	# print out the records using pretty print
-	# note that the NAMES of the columns are not shown, instead just indexes.
-	# for most people this isn't very useful so we'll show you how to return
-	# columns as a dictionary (hash) in the next example.
-	pprint.pprint(records)
+	# for each element of the record returned by the DB, create a Joueur
+	# and use its print function to display it
+	for item in records:
+	    print("The following information is displayed through an object of the class Joueur:")
+	    myJoueur = class_joueur.Joueur( item )
+	    myJoueur.displayJoueur()
+	    print(" ") # To jump one line
  
 if __name__ == "__main__":
 	main()
