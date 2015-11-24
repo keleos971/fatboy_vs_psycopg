@@ -1,15 +1,20 @@
 /*
-To insert data into the table joueur, modifiy the file
-joueur.csv and run this script through pgadmin.
-WARNING : existing data will be overwritten by default
-to prevent this you must comment out the line 'delete from joueur;'
+This script allows to insert data into postgresql table public.joueur
+from a csv file (configured with ; as delimiter) on the server.
+
+The csv file must onle contain the necessary columns in it and never
+take the auto-filled columns like id or datec which are auto-filled
+during the insertion server-side.
 */
 
-delete from joueur;
+delete from joueur;  -- comment out to prevent table wipe !!!
 
-copy joueur
-  (nom,
+copy joueur  --target table
+  (nom,  -- target columns
   commentaire)
 from
-  '/home/voxclam/git/fatboy_vs_psycopg/joueur.csv' -- POINT TO THE CSV FILE IN YOUR LOCAL ENVIRONMENT HERE (full path)
-  with csv delimiter ';' HEADER;
+  '/home/sighil/git/sql/dummy_data/joueur.csv' -- path to csv on the server
+  WITH NULL AS '' -- empty csv cells will be considered as null
+  DELIMITER AS ';' -- must match the csv configuration (either space or ;)
+  csv -- tells that the input file is csv
+  HEADER; -- to ignore the first row of the csv file, with column names
