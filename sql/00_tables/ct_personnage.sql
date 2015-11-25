@@ -4,13 +4,17 @@ personnage are characters impersonated by players.
 a player can only have one current char alive, but
 can have multiple chars throughout the game.
 
-TODO : 
+TODO :
 Consider adding a field for legacy (ie who's the father)
 Consider a char state different from 0 alive 1 dead. May be alive but abandoned by player ?
 */
 
--- DROP TABLE personnage;
+DROP SEQUENCE personnage_id_seq CASCADE;
+CREATE SEQUENCE personnage_id_seq
+  INCREMENT BY 1
+  START WITH 1;
 
+DROP TABLE personnage CASCADE;
 CREATE TABLE personnage
 (
   id serial PRIMARY KEY,  -- unique id. pkey option means not null + unique

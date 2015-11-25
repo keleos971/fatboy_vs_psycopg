@@ -1,20 +1,50 @@
--- sql_ctJOUEUR.sql
--- created : 2015 11 19
--- modified :
--- test SQL & PGPLSQL script for the creation of public.joueur
--- and sequence for unique serial key
+/*
+Table: joueur
+Lists all the active players in the game.
+personnage.proprietaire DEPENDS on joueur.id
+*/
+
+DROP SEQUENCE joueur_id_seq CASCADE;
+CREATE SEQUENCE joueur_id_seq
+  INCREMENT BY 1
+  START WITH 1;
+
+DROP TABLE joueur CASCADE;
+CREATE TABLE joueur
+(
+  id serial NOT NULL PRIMARY KEY,
+  nom character varying(50) NOT NULL, -- only aliases ! (bc legal reasons)
+  datec timestamp without time zone DEFAULT now(), -- creation date
+  mail character varying(30), -- contact email
+  commentaire character varying(400)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE joueur
+  OWNER TO postgres;
 
 
--- sequence joueur_id increments at every insert into table joueur
--- used by id field in create table joueur
-drop sequence joueur_id;
-create sequence joueur_id;
+/*
+SQL CODE TAKEN FROM pgAdminIII TABLE CREATION PANEL
+NOTE THE AUTOMATICALLY ADDED CONSTRAINTS
 
--- table joueur
-drop table joueur;
-create table public.joueur(
-        id integer PRIMARY KEY DEFAULT nextval('joueur_id'),        -- unique id
-        nom varchar(50) NOT NULL,       -- player's real name (only last name)
-        personnage varchar(50) NOT NULL,        -- player's current character name
-        date_inscription timestamp default current_timestamp,
-        commentaire varchar(400));
+-- Table: joueur
+
+-- DROP TABLE joueur;
+
+CREATE TABLE joueur
+(
+  id serial NOT NULL,
+  nom character varying(50) NOT NULL,
+  datec timestamp without time zone DEFAULT now(),
+  commentaire character varying(400),
+  CONSTRAINT joueur_pkey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE joueur
+  OWNER TO postgres;
+
+*/
