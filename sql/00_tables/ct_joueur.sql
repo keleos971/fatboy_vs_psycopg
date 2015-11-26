@@ -4,12 +4,7 @@ Lists all the active players in the game.
 personnage.proprietaire DEPENDS on joueur.id
 */
 
-DROP SEQUENCE joueur_id_seq CASCADE;
-CREATE SEQUENCE joueur_id_seq
-  INCREMENT BY 1
-  START WITH 1;
-
-DROP TABLE joueur CASCADE;
+DROP TABLE IF EXISTS joueur CASCADE;
 CREATE TABLE joueur
 (
   id serial NOT NULL PRIMARY KEY,

@@ -9,11 +9,6 @@ Consider adding a field for legacy (ie who's the father)
 Consider a char state different from 0 alive 1 dead. May be alive but abandoned by player ?
 */
 
-DROP SEQUENCE personnage_id_seq CASCADE;
-CREATE SEQUENCE personnage_id_seq
-  INCREMENT BY 1
-  START WITH 1;
-
 DROP TABLE personnage CASCADE;
 CREATE TABLE personnage
 (
